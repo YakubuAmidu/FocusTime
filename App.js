@@ -1,8 +1,18 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { Focus } from './src/features/focus/Focus';
 
 export default function App() {
-  return <View style={styles.container}></View>;
+  const [focusSubject, setFocusSubject] = useState(null);
+  return (
+    <View style={styles.container}>
+      {focusSubject ? (
+        <Text>Here is where I am going to build a timer</Text>
+      ) : (
+        <Focus />
+      )}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
