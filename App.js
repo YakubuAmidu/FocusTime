@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, Platform, View } from 'react-native';
 import { Focus } from './src/features/focus/Focus';
 import { Timer } from './src/features/timer/Timer';
 import { colors } from './src/utils/colors';
@@ -21,7 +21,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: spacing.md,
+    paddingTop: Platform.OS === 'ios' ? spacing.md : spacing.lg,
     backgroundColor: colors.darkBlue,
   },
 });
