@@ -1,12 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import { colors } from '../utils/colors';
 import { fontSizes, spacing } from '../utils/sizes';
 
 const minuetesToMillis = (min) => min * 1000 * 60;
+const formatTime = (time) => (time < 10 ? `0${time}` : time);
 
 export const CountDown = ({ minutes = 20, isPaused }) => {
-  return <Text style={styles.text}>CountDown timer goes here</Text>;
+  const [millis, setMillis] = useState(minuetesToMillis(minutes));
+
+  const countDown = () => {
+    setMillis((time) => {
+      if (time === 0) {
+        // Do more stuff here
+        return time;
+      }
+      const timeLeft = time - 1000;
+      // Report the progress
+      return timeLeft;
+    });
+  };
+
+  const minute = Math.floor(millis / 1000 / 60) % 60;
+  const seconds = Math.floor(millis / 1000) % 60;
+
+  return (
+    <Text style={styles.text}>
+      {formatTime(minute)}:{formatTime(seconds)}
+    </Text>
+  );
 };
 
 const styles = StyleSheet.create({
