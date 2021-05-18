@@ -7,6 +7,8 @@ import { spacing } from '../../utils/sizes';
 import { CountDown } from '../../components/CountDown';
 import { RoundedButton } from '../../components/RoundedButton';
 
+import { Timing } from './Timing';
+
 export const Timer = ({ focusSubject }) => {
   const [minutes, setMinutes] = useState(0.1);
   const [isStarted, setIsStarted] = useState(false);
@@ -18,6 +20,8 @@ export const Timer = ({ focusSubject }) => {
 
   const changeTime = (min) => {
     setMinutes(min);
+    setProgress(1);
+    setIsStarted(false);
   };
 
   return (
@@ -74,7 +78,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   buttonWrapper: {
-    flex: 0.5,
+    flex: 0.3,
+    flexDirection: 'row',
     padding: 15,
     justifyContent: 'center',
     alignItems: 'center',
