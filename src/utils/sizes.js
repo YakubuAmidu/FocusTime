@@ -7,7 +7,7 @@ export const fontSizes = {
   xxxxl: 80,
 };
 
-export const paddingSizes = {
+export const spacing = {
   sm: 8,
   md: 16,
   lg: 24,
