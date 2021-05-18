@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { Focus } from './src/features/focus/Focus';
+import { Timer } from './src/features/timer/Timer';
 import { colors } from './src/utils/colors';
+import { spacing } from './src/utils/sizes';
 
 export default function App() {
-  const [focusSubject, setFocusSubject] = useState(null);
+  const [focusSubject, setFocusSubject] = useState('gardening');
   return (
     <View style={styles.container}>
       {focusSubject ? (
-        <Text>Here is where I am going to build a timer</Text>
+        <Timer focusSubject={focusSubject} />
       ) : (
         <Focus addSubject={setFocusSubject} />
       )}
-      <Text>{focusSubject}</Text>
     </View>
   );
 }
@@ -20,6 +21,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: spacing.md,
     backgroundColor: colors.darkBlue,
   },
 });
