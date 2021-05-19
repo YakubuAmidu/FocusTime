@@ -24,7 +24,6 @@ export default function App() {
     setFocusHistory([...focusHistory, { subject, status }]);
   };
 
-  console.log(focusSubject);
   return (
     <View style={styles.container}>
       {focusSubject ? (
