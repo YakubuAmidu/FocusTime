@@ -51,6 +51,10 @@ export default function App() {
   };
 
   useEffect(() => {
+    loadFocusHistory();
+  }, []);
+
+  useEffect(() => {
     saveFocusHistory();
   }, [focusHistory]);
 
